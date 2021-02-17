@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button>CLICK</button>
+
+<script>
+
+    window.name = 'ZZZZ';
+
+    (function doA(name11){
+
+        var count = 1;
+
+        document.querySelector("button")
+            .addEventListener("click" , function (){
+                alert(name +": "+name11 + ++count);
+            }, false);
+    })("Hong");
+
+
+</script>
+
+</body>
+</html>

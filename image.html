@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+
+    .imgContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        perspective: 1000px;
+        overflow-style: auto;
+    }
+
+    .view {
+        width: 400px;
+        height: 400px;
+        background-color: antiquewhite;
+        justify-content: center;
+
+    }
+
+    .img {
+        width: 30%;
+        height: 30%;
+        margin: 40px;
+
+
+    }
+
+    .viewImg{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        overflow-style: auto;
+    }
+
+    /*.speaker {*/
+    /*    display: flex;*/
+    /*    flex-direction: row;*/
+    /*    justify-content: center;*/
+    /*    width: 100px;*/
+    /*    height: 10px;*/
+    /*    overflow-style: auto;*/
+    /*}*/
+
+</style>
+
+<div class="imgContainer">
+<!--    <div class="img">-->
+<!--        <img class="ch"   src="/w1/ch1.jpg">-->
+<!--    </div>-->
+
+     <div class="img">
+         <img class="ch"  src="/w1/ch2.jpg">
+     </div>
+    <div class="img">
+         <img class="ch"  src="/w1/ch3.jpg">
+    </div>
+    <div class="img">
+        <img class="ch"  src="/w1/ch4.jpg">
+    </div>
+<!--    <div class="img">-->
+<!--        <img class="ch"  src="/w1/ch5.jpg">-->
+<!--    </div>-->
+
+
+    <!--    <div class="speaker">-->
+<!--        <audio class="mp3">dd</audio>-->
+<!--    </div>-->
+
+</div>
+
+<div class="view">
+
+    <img class="viewImg" src="" alt="FootBall Club">
+
+</div>
+
+<script>
+
+    var imgs = document.querySelectorAll(".ch");
+
+    for(var i = 0; i <imgs.length; i++) {
+        imgs[i].addEventListener("click" , function() {
+            // console.log(this);
+
+            var imgSrc = this.getAttribute("src");
+            var target = document.querySelector(".viewImg");
+            target.setAttribute("src" , imgSrc);
+
+        },false)
+        // false -> 버블링만 지원하겠다 , 캡처링은 지원x
+    }
+
+</script>
+
+</body>
+</html>

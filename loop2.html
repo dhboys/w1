@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>4</button>
+
+<script>
+
+    function doA() {
+        // button의 전체 목록 가져오기
+        const arr = document.querySelectorAll("button");
+        // arr[i] = button 이다
+        // let i 로 하면 0,1,2,3 찍히고 var i 로 하면 4,4,4,4로 찍힌다 -> closure의 필요성
+        for(var i = 0; i < arr.length; i++) {
+            // 즉시 실행 함수를 만들고 실행하라 -> 함수안에 함수를 싸서 자동으로 참조될 수 있도록 만든다
+            // 즉시 실행 함수는 상태유지(i값)를 위한 함수
+            (function (num) {
+                console.log(num);
+                // 이벤트리스너 함수는 즉시실행함수를 참조하게된다
+                arr[i].addEventListener("click" , function (){
+                    alert(num);
+                } , false);
+            })(i);
+        } // end for
+    }
+
+    doA();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+
+
+
+</style>
+
+ <button onclick="create()">create</button>
+ <button onclick="updateUL()">update</button>
+ <button onclick="deleteUL()">delete</button>
+ <button onclick="show()">show</button>
+
+ <ul>targetUL</ul>
+ <ul>New</ul>
+
+<script>
+    // ul 객체 찾기 -> 새로운 tag 만들기 -> ul에 붙이기
+
+    //
+    const ulObj = document.querySelector("ul");
+
+
+    // 이벤트를 바로 걸 수 있다
+    // create 버튼 클릭-> ul내부에 li를 생성해서 추가 - createElement createTextNode
+    function create() {
+        // class 명이아닌 "ul"로 해도 첫번째 ul 에만 생긴다 -> why??
+        // var works = document.querySelector(".NC");
+        // var work = document.createElement("li");
+        // var workText = document.createTextNode('create');
+        // work.appendChild(workText);
+        // document.querySelector(".NC").appendChild( work );
+
+        //강사님
+        var li = document.createElement("li");
+        var text = document.createTextNode("Create");
+        li.appendChild(text);
+        ulObj.appendChild(li);
+    }
+
+    function updateUL() {
+        console.log("update")
+        // 모든 li의 내용물을 ZZZ로 변경 - setAttribute , innerHTML
+
+        // var ul= document.querySelector(".NC");
+        // var works = ul.querySelectorAll("li");
+        //
+        // for( var i = 0; i < works.length; i++) {
+        //  works[i].innerHTML = 'ZZZ';
+        // }
+
+        // 강사님
+        const lis = ulObj.querySelectorAll("li");
+        for (const li of lis) {
+            li.textContent = "ZZZ";
+        }
+
+
+    }
+
+    function deleteUL() {
+        console.log("delete")
+        // 모든 li를 삭제 - remove? delete? Element
+        var ul = document.querySelector(".NC");
+        var works = ul.querySelectorAll("li");
+        // works[i].remove();
+       for( var i = 0; i < works.length; i++) {
+           // ul.lastChild.remove();
+           works[i].remove();
+       }
+
+        // firstChild() 와 lastChild()
+
+        // for (var i = 0; i < works.length; i++) {
+        //     works[i].removeChild("li");
+        //  }
+    }
+
+    function show() {
+        console.log("show")
+        // 내용물을 보여준다
+    }
+</script>
+</body>
+</html>

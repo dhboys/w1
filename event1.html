@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<script>-->
+<!--    // dom 처리가 끝날때까지 기다리는 event-->
+<!--    // document의 메모리 구조가 완성이 되면 함수를 실행하라 -> 문서전체가 아닌 dom구조만 완성되면 이벤트주는 이유는 빠르게 이벤트 주려고-->
+<!--    // 이벤트로 실행되는 함수는 하나의 파라미터를 받을 수 있다(event정보)-->
+<!--    window.addEventListener('DOMContentLoaded', function (event)){-->
+<!--        const obj = document.querySelector("h1");-->
+<!--        console.log(obj); // null -> assign 했는데 나오는 값이 없으므로..-->
+<!--    });-->
+<!--</script>-->
+
+<style>
+    .outer{
+        width: 300px;
+        height: 500px;
+        padding: 100px;
+        background-color: black;
+    }
+
+    .inner {
+        background-color: pink;
+    }
+</style>
+
+<div class="outer" onclick="outer()">
+    <div class="inner" onclick="inner()">
+        <h1 onclick="h1(event)">CLICK</h1>
+    </div>
+</div>
+
+<script>
+    function outer() {
+        console.log("outer")
+    }
+    function inner() {
+        console.log("inner")
+    }
+    function h1(event) {
+        console.log("h1: "+event)
+        event.stopPropagation();
+    }
+</script>
+
+</body>
+</html>
